@@ -22,13 +22,6 @@
 			"redstoneassemblermod.RedstoneAssemblerModClient"
 		]
 	},
-	"mixins": [
-		"redstoneassemblermod.mixins.json",
-		{
-			"config": "redstoneassemblermod.client.mixins.json",
-			"environment": "client"
-		}
-	],
 	"depends": {
 		"fabricloader": ">=0.16.9",
 		"minecraft": "~1.21.3",

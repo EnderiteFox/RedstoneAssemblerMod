@@ -41,7 +41,7 @@ public class FillProgramRomCommand {
     private static final int BANK_ROW_COUNT = 16;
     private static final int BANK_COLUMN_COUNT = 16;
     private static final int BANK_COUNT = 2;
-    private static final int BANK_SPACING = 5;
+    private static final int BANK_SPACING = 3;
 
     private static final int INTERSPACING_COUNT = 2;
     private static final Direction INTERSPACING_DIRECTION = Direction.NORTH;

@@ -39,8 +39,11 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation files('../RedstoneAssembler/out/artifacts/RedstoneAssembler_jar/RedstoneAssembler.jar')
+	implementation project(':redstoneAssembler')
+	include project(':redstoneAssembler')
 }
+
+
 
 processResources {
 	inputs.property "version", project.version

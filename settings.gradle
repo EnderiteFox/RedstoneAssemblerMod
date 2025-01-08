@@ -8,3 +8,6 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
+
+include ':redstoneAssembler'
+project(':redstoneAssembler').projectDir = new File(ext.getProperty('redstoneAssembler_dir'))
