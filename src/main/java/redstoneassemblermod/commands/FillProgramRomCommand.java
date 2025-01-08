@@ -14,14 +14,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
-import net.minecraft.world.ModifiableWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldProperties;
-import redstoneassemblermod.RedstoneAssemblerMod;
 import redstoneassemblermod.utils.AssemblerCommandUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FillProgramRomCommand {

@@ -3,13 +3,13 @@
 	"id": "redstoneassemblermod",
 	"version": "${version}",
 	"name": "RedstoneAssemblerMod",
-	"description": "A mod that I use to automatically fill in the program memory for my redstone processor",
+	"description": "A mod that I wrote to automatically fill in the program memory for my redstone processor",
 	"authors": [
 		"EnderiteFox"
 	],
 	"contact": {
 		"homepage": "https://github.com/EnderiteFox",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/EnderiteFox/RedstoneAssemblerMod"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/redstoneassemblermod/icon.png",
