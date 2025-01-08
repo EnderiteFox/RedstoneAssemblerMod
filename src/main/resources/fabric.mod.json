@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "redstoneassemblermod",
+	"version": "${version}",
+	"name": "RedstoneAssemblerMod",
+	"description": "A mod that I use to automatically fill in the program memory for my redstone processor",
+	"authors": [
+		"EnderiteFox"
+	],
+	"contact": {
+		"homepage": "https://github.com/EnderiteFox",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/redstoneassemblermod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"redstoneassemblermod.RedstoneAssemblerMod"
+		],
+		"client": [
+			"redstoneassemblermod.RedstoneAssemblerModClient"
+		]
+	},
+	"mixins": [
+		"redstoneassemblermod.mixins.json",
+		{
+			"config": "redstoneassemblermod.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21.3",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
