@@ -20,9 +20,6 @@ import redstoneassemblermod.utils.AssemblerCommandUtils;
 import java.util.List;
 
 public class FillProgramRomCommand {
-    private static final int PROGRAM_MAX_SIZE = 1024;
-    private static final Short NOP = 0x0000;
-
     private static final int BLOCK_SPACING = 2;
     private static final int BYTE_SPACING = 2;
 
@@ -66,7 +63,6 @@ public class FillProgramRomCommand {
 
         List<Short> assembledProgram = AssemblerCommandUtils.assembleProgramInBook(context, player);
         if (assembledProgram == null) return Command.SINGLE_SUCCESS;
-        while (assembledProgram.size() < PROGRAM_MAX_SIZE) assembledProgram.add(NOP);
 
         writeAllInstructions(
             assembledProgram,

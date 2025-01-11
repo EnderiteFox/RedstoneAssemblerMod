@@ -22,6 +22,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AssemblerCommandUtils {
+    public static int MAX_PROGRAM_SIZE = 1024;
+    public static short NOP = 0x0000;
+
     public static ItemStack getBookItem(CommandContext<ServerCommandSource> context, PlayerEntity player) {
         ItemStack itemStack = player.getStackInHand(Hand.MAIN_HAND);
         if (itemStack.isEmpty()) {
@@ -81,6 +84,8 @@ public class AssemblerCommandUtils {
             context.getSource().sendError(Text.literal("Error while reading program\n" + e.getMessage()));
             return null;
         }
+
+        while (assembledProgram.size() < MAX_PROGRAM_SIZE) assembledProgram.add(NOP);
 
         return assembledProgram;
     }

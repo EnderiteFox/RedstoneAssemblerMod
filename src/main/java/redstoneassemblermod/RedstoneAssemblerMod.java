@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import redstoneassemblermod.commands.EmulateProgramCommand;
 import redstoneassemblermod.commands.FillProgramRomCommand;
 import redstoneassemblermod.commands.MachineCodeCommand;
 
@@ -26,5 +27,6 @@ public class RedstoneAssemblerMod implements ModInitializer {
 
 		CommandRegistrationCallback.EVENT.register(MachineCodeCommand::command);
 		CommandRegistrationCallback.EVENT.register(FillProgramRomCommand::command);
+		CommandRegistrationCallback.EVENT.register(EmulateProgramCommand::command);
 	}
 }
