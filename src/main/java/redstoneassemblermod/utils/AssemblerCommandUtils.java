@@ -16,10 +16,12 @@ import net.minecraft.item.Items;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import org.apache.logging.log4j.core.jmx.Server;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 public class AssemblerCommandUtils {
     public static int MAX_PROGRAM_SIZE = 1024;
@@ -56,6 +58,10 @@ public class AssemblerCommandUtils {
     }
 
     public static List<Short> assembleProgramInBook(CommandContext<ServerCommandSource> context, PlayerEntity player) {
+        return assembleProgramInBook(context, player, true);
+    }
+
+    public static List<Short> assembleProgramInBook(CommandContext<ServerCommandSource> context, PlayerEntity player, boolean fillWithNops) {
         List<String> program = readProgramInBook(context, player);
         if (program == null) return null;
 
@@ -85,7 +91,7 @@ public class AssemblerCommandUtils {
             return null;
         }
 
-        while (assembledProgram.size() < MAX_PROGRAM_SIZE) assembledProgram.add(NOP);
+        if (fillWithNops) while (assembledProgram.size() < MAX_PROGRAM_SIZE) assembledProgram.add(NOP);
 
         return assembledProgram;
     }

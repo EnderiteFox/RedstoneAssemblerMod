@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import redstoneassemblermod.commands.EmulateProgramCommand;
 import redstoneassemblermod.commands.FillProgramRomCommand;
 import redstoneassemblermod.commands.MachineCodeCommand;
+import redstoneassemblermod.commands.ReadRegistryCommand;
 
 public class RedstoneAssemblerMod implements ModInitializer {
 	public static final String MOD_ID = "redstoneassemblermod";
@@ -28,5 +29,6 @@ public class RedstoneAssemblerMod implements ModInitializer {
 		CommandRegistrationCallback.EVENT.register(MachineCodeCommand::command);
 		CommandRegistrationCallback.EVENT.register(FillProgramRomCommand::command);
 		CommandRegistrationCallback.EVENT.register(EmulateProgramCommand::command);
+		CommandRegistrationCallback.EVENT.register(ReadRegistryCommand::command);
 	}
 }

@@ -29,7 +29,7 @@ public class MachineCodeCommand {
     private static int execute(CommandContext<ServerCommandSource> context) {
         if (!(context.getSource().getEntity() instanceof PlayerEntity player)) return -1;
 
-        List<Short> assembledProgram = AssemblerCommandUtils.assembleProgramInBook(context, player);
+        List<Short> assembledProgram = AssemblerCommandUtils.assembleProgramInBook(context, player, false);
         if (assembledProgram == null) return Command.SINGLE_SUCCESS;
 
         context.getSource().sendFeedback(
