@@ -8,20 +8,24 @@ import fr.enderitefox.redstoneassembler.core.preprocessors.AssemblyPreprocessor;
 import fr.enderitefox.redstoneassembler.core.redstone_assembly.RedstoneAssembler;
 import fr.enderitefox.redstoneassembler.core.redstone_assembly.RedstoneOperationTable;
 import fr.enderitefox.redstoneassembler.core.redstone_assembly.preprocessors.RedstoneAliasesPreprocessor;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.WritableBookContentComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
-import org.apache.logging.log4j.core.jmx.Server;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Properties;
 
 public class AssemblerCommandUtils {
     public static int MAX_PROGRAM_SIZE = 1024;
@@ -105,5 +109,26 @@ public class AssemblerCommandUtils {
             strInst.append("\n");
         }
         return strInst.toString();
+    }
+
+    public static Byte readRegistry(World world, BlockPos loc, final int BIT_COUNT, final Direction BIT_DIRECTION, final int BIT_OFFSET) {
+        byte value = 0;
+        for (int i = BIT_COUNT - 1; i >= 0; --i) {
+            BlockPos blockPos = loc.add(BIT_DIRECTION.getVector().multiply(BIT_OFFSET).multiply(i));
+            BlockState block = world.getBlockState(blockPos);
+            if (!block.getBlock().equals(Blocks.REPEATER)) return null;
+            if (block.get(Properties.POWERED)) {
+                value |= (byte) (1 << (BIT_COUNT - i - 1));
+            }
+        }
+        return value;
+    }
+
+    public static String byteToString(byte number) {
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < 8; ++i) {
+            str.append(((number << i) & 0x80) != 0 ? '1' : '0');
+        }
+        return str.toString();
     }
 }
